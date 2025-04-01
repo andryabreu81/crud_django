@@ -22,7 +22,12 @@
         </div>
 
         <!-- mensajes cuando hay un error al escribir en el campo del formulario -->
-        <div class="col-12 help-text">{{ campo.errors }}</div>
+        {% if campo.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ campo.errors }}
+            </div>
+        {% endif %}
+        
     {% endfor %}
     <input name="" id="" class="btn btn-success" type="submit" value="Enviar"/>
     <a name="" id="" class="btn btn-primary" href="{% url 'libros' %}" role="button">Cancelar</a>
